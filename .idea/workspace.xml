@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2292b388-0724-43f4-a38e-3035d2d3d63c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Lab1_model_cnn/CNN_model.py" afterPath="$PROJECT_DIR$/Lab1_model_cnn/CNN_model.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Lab1_model_cnn/CNN_train.py" afterPath="$PROJECT_DIR$/Lab1_model_cnn/CNN_train.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Lab1_model_cnn/CNN_test.py" afterPath="$PROJECT_DIR$/Lab1_model_cnn/CNN_test.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -15,11 +14,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="CNN_train.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="CNN_train.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Lab1_model_cnn/CNN_train.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="694">
-              <caret line="56" column="26" lean-forward="true" selection-start-line="56" selection-start-column="26" selection-end-line="56" selection-end-column="26" />
+            <state relative-caret-position="463">
+              <caret line="42" column="94" lean-forward="false" selection-start-line="42" selection-start-column="43" selection-end-line="42" selection-end-column="94" />
               <folding>
                 <element signature="e#0#23#0" expanded="true" />
               </folding>
@@ -27,12 +26,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CNN_test.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="CNN_test.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Lab1_model_cnn/CNN_test.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="337">
+              <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#23#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -40,8 +41,8 @@
       <file leaf-file-name="CNN_model.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Lab1_model_cnn/CNN_model.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="400">
-              <caret line="61" column="53" lean-forward="true" selection-start-line="61" selection-start-column="53" selection-end-line="61" selection-end-column="53" />
+            <state relative-caret-position="-588">
+              <caret line="2" column="15" lean-forward="false" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="15" />
               <folding />
             </state>
           </provider>
@@ -81,8 +82,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="347" />
-    <option name="y" value="36" />
+    <option name="x" value="-119" />
+    <option name="y" value="66" />
     <option name="width" value="1932" />
     <option name="height" value="1056" />
   </component>
@@ -229,8 +230,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="347" y="36" width="1932" height="1056" extended-state="0" />
-    <editor active="true" />
+    <frame x="-119" y="66" width="1932" height="1056" extended-state="0" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25240642" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -288,14 +288,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Lab1_model_cnn/CNN_model.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="61" column="53" lean-forward="true" selection-start-line="61" selection-start-column="53" selection-end-line="61" selection-end-column="53" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Lab1_model_cnn/Data_Prepare.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="988">
@@ -306,18 +298,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Lab1_model_cnn/CNN_test.py">
+    <entry file="file://$PROJECT_DIR$/Lab1_model_cnn/CNN_model.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="-588">
+          <caret line="2" column="15" lean-forward="false" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="15" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Lab1_model_cnn/CNN_train.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="694">
-          <caret line="56" column="26" lean-forward="true" selection-start-line="56" selection-start-column="26" selection-end-line="56" selection-end-column="26" />
+        <state relative-caret-position="463">
+          <caret line="42" column="94" lean-forward="false" selection-start-line="42" selection-start-column="43" selection-end-line="42" selection-end-column="94" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Lab1_model_cnn/CNN_test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="337">
+          <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
           </folding>
