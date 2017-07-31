@@ -47,6 +47,20 @@ class model_cnn:
         y_out = h4_softmax
         return y_out
 
+
+    def calculate_error(self, y_out, y):
+        '''
+        计算样本集的预测错误率
+        :param y_out: 模型输出
+        :param y: 实际标签
+        :return:
+        '''
+
+        with name_scope('calculate_error'):
+            y_out_label = tf.argmax(y_out)
+            y_label = tf.argmax(y)
+            return 1 - tf.equal(y_out_label, y_label)
+
     def backpropagation_process(self, y_out, y):
         '''
         反馈更新权值过程

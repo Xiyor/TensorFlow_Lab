@@ -1,4 +1,5 @@
 import tensorflow as tf
+import matplotlib.pyplot as plt
 from CNN_model import model_cnn
 from Data_Prepare import Data_Prepare
 
@@ -25,6 +26,10 @@ class model_train:
         y_out = self.model_prepare.forward_process(x, keep_prob)
         train_step = self.model_prepare.backpropagation_process(y_out, y)
 
+        # 保存训练集
+        train_error = []
+
+        saver = tf.train.Saver()
 
         with tf.Session() as sess:
             sess.run(tf.local_variables_initializer())
@@ -35,7 +40,19 @@ class model_train:
             for iter in range(iter_num):
                 print(iter)
                 image_batch_train, label_batch_train = sess.run([image_batch, label_batch])
-                train_step.run(feed_dict={x: image_batch_train, y: label_batch_train, keep_prob: 0.5})
+                cur_iter_error = y_out.run(feed_dict = {x : image_batch_train, keep_prob: 0.5})
+                train_error.append(cur_iter_error)
+                train_step.run(feed_dict = {x: image_batch_train, y: label_batch_train, keep_prob: 0.5})
+
+            # 绘制训练误差
+            plt.plot(train_error)
+            plt.xlabel('Training Error')
+            plt.ylabel('Iter Order')
+            plt.show()
+
+            # 模型持久化
+            save_path = saver.save(sess, "./Model/model_cnn.ckpt")
+
 
 if __name__ == '__main__':
     train_obj = model_train()
