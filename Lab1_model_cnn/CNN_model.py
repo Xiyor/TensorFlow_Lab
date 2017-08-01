@@ -12,8 +12,9 @@ class model_cnn:
         '''
 
         with tf.name_scope('conv1'):
-            conv1_w = tf.Variable(tf.truncated_normal([5, 5, 3, 32], stddev=0.1))
-            conv1_b = tf.Variable(tf.constant(0.1, shape=[32]))
+            conv1_w = tf.get_variable('conv1_w', shape = [5, 5, 3, 32], dtype = tf.float32,
+                                      initializer=tf.truncated_normal_initializer(stddev=0.1,dtype=tf.float32))
+            conv1_b = tf.get_variable('conv1_b', shape=[32], dtype = tf.float32, initializer=tf.constant_initializer(0.1))
             h1 = tf.nn.conv2d(x, conv1_w, strides=[1, 1, 1, 1], padding='SAME') + conv1_b
             h1_relu = tf.nn.relu(h1)
 
@@ -22,8 +23,9 @@ class model_cnn:
                                       padding='SAME')
 
         with tf.name_scope('conv2'):
-            conv2_w = tf.Variable(tf.truncated_normal([3, 3, 32, 64], stddev=0.1))
-            conv2_b = tf.Variable(tf.constant(0.1, shape=[64]))
+            conv2_w = tf.get_variable('conv2_w', shape = [3, 3, 32, 64], dtype = tf.float32,
+                                      initializer=tf.truncated_normal_initializer(stddev=0.1,dtype=tf.float32))
+            conv2_b = tf.get_variable('conv2_b', shape=[64], dtype = tf.float32, initializer=tf.constant_initializer(0.1))
             h2 = tf.nn.conv2d(h1_pool, conv2_w, strides=[1, 1, 1, 1], padding='SAME') + conv2_b
             h2_relu = tf.nn.relu(h2)
 
@@ -32,18 +34,20 @@ class model_cnn:
                                       padding='SAME')
 
         with tf.name_scope('fc1'):
-            fc1_w = tf.Variable(tf.truncated_normal([7*7*64, 128], stddev=0.1))
-            fc1_b = tf.Variable(tf.truncated_normal([128], stddev=0.1))
+            fc1_w = tf.get_variable('fc1_w', shape = [7*7*64, 128], dtype = tf.float32,
+                                      initializer=tf.truncated_normal_initializer(stddev=0.1,dtype=tf.float32))
+            fc1_b = tf.get_variable('fc1_b', shape = [128], dtype = tf.float32, initializer=tf.constant_initializer(0.1))
             h2_pool_flat = tf.reshape(h2_pool, [-1, 7*7*64])
             h3_relu = tf.nn.relu(tf.matmul(h2_pool_flat, fc1_w) + fc1_b)
             h3_relu_drop = tf.nn.dropout(h3_relu, keep_prob)
 
         with tf.name_scope('f2'):
-            fc2_w = tf.Variable(tf.truncated_normal([128, 2], stddev=0.1))
-            fc2_b = tf.Variable(tf.truncated_normal([2], stddev=0.1))
+            fc2_w = tf.get_variable('fc2_w', shape = [128, 2], dtype = tf.float32,
+                                      initializer=tf.truncated_normal_initializer(stddev=0.1,dtype=tf.float32))
+            fc2_b = tf.get_variable('fc2_b', shape = [2], dtype = tf.float32, initializer=tf.constant_initializer(0.1))
             h4 = tf.matmul(h3_relu_drop, fc2_w) + fc2_b
             h4_softmax = tf.nn.softmax(h4)
-
+        print(h4_softmax)
         y_out = h4_softmax
         return y_out
 
@@ -56,10 +60,8 @@ class model_cnn:
         :return:
         '''
 
-        with name_scope('calculate_error'):
-            y_out_label = tf.argmax(y_out)
-            y_label = tf.argmax(y)
-            return 1 - tf.equal(y_out_label, y_label)
+        with tf.name_scope('calculate_error'):
+            return -tf.reduce_mean(y * tf.log(y_out))
 
     def backpropagation_process(self, y_out, y):
         '''

@@ -12,10 +12,10 @@ class model_train:
 
     def train_main(self):
 
-        iter_num = 10
-        batch_size = 5
-        capacity = 10
-        min_after_dequeue = 5
+        iter_num = 100
+        batch_size = 8
+        capacity = 500
+        min_after_dequeue = 499
 
         x = tf.placeholder(tf.float32, shape=[None, 28, 28, 3])
         y = tf.placeholder(tf.float32, shape=[None, 2])
@@ -24,6 +24,7 @@ class model_train:
         image_batch, label_batch = self.data_parepare.generate_batch(batch_size, capacity, min_after_dequeue)
 
         y_out = self.model_prepare.forward_process(x, keep_prob)
+        error = self.model_prepare.calculate_error(y_out, y)
         train_step = self.model_prepare.backpropagation_process(y_out, y)
 
         # 保存训练集
@@ -40,11 +41,13 @@ class model_train:
             for iter in range(iter_num):
                 print(iter)
                 image_batch_train, label_batch_train = sess.run([image_batch, label_batch])
-                cur_iter_error = y_out.run(feed_dict = {x : image_batch_train, keep_prob: 0.5})
+                cur_iter_error = sess.run(error, feed_dict = {x : image_batch_train, y : label_batch_train, keep_prob: 0.5})
                 train_error.append(cur_iter_error)
-                train_step.run(feed_dict = {x: image_batch_train, y: label_batch_train, keep_prob: 0.5})
+                sess.run(train_step, feed_dict = {x: image_batch_train, y: label_batch_train, keep_prob: 0.5})
 
             # 绘制训练误差
+            print(train_error)
+            plt.figure()
             plt.plot(train_error)
             plt.xlabel('Training Error')
             plt.ylabel('Iter Order')
